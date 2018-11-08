@@ -74,7 +74,7 @@ ALTER PROCEDURE [dbo].[SetPid]
 	@PID_27			VARCHAR(100),	--veteranStatus
 	@PID_28			VARCHAR(100),	--nationality
 	@PID_29			VARCHAR(100),	--deathDateTime
-	@PID_30			VARCHAR(100),	--deathIndicator
+	@PID_30			VARCHAR(100)	--deathIndicator
 )
 AS
 /********************************************************    
@@ -237,7 +237,7 @@ DECLARE @PID_Id BIGINT;
 	 BEGIN
 		UPDATE [dbo].[PID_Data] 
 		SET
-			,PID_1			= @PID_1		
+			PID_1			= @PID_1		
 			,PID_2			= @PID_2		
 			,PID_3			= @PID_3		
 			,PID_4			= @PID_4		

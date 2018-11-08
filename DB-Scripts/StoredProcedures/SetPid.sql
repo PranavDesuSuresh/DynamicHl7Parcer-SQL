@@ -95,7 +95,7 @@ DECLARE @PID_Id BIGINT;
 		EXEC CreatePID;
 	END
 
-	IF NOT EXISTS (SELECT 1 FROM [dbo].[PID_Data] WITH(NOLOCK) WHERE ID = @ID) AND @ID>0           
+	IF NOT EXISTS (SELECT 1 FROM [dbo].[PID_Data] WITH(NOLOCK) WHERE ID = @ID)           
 	BEGIN    
 	INSERT INTO [dbo].[PID_Data]
 					(	 ID

@@ -62,7 +62,7 @@ DECLARE @MSH_Id BIGINT;
 		EXEC CreateMSH;
 	END
 
-	IF NOT EXISTS (SELECT 1 FROM [dbo].[MSH_Data] WITH(NOLOCK) WHERE ID = @ID) AND @ID>0           
+	IF NOT EXISTS (SELECT 1 FROM [dbo].[MSH_Data] WITH(NOLOCK) WHERE ID = @ID)         
 	BEGIN        
 	print '1' 
 	INSERT INTO [dbo].[MSH_Data]

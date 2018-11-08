@@ -13,6 +13,7 @@ GO
 ALTER PROCEDURE [dbo].[SetMsh] 
 (
 	@ID				INT,
+	@PatientID		BIGINT,
 	@MSH_1			VARCHAR(100),	--fieldSeparator
 	@MSH_2			VARCHAR(100),	--encodingCharacters
 	@MSH_3_1		VARCHAR(100),	--sendingApplication.namespaceId
@@ -66,7 +67,9 @@ DECLARE @MSH_Id BIGINT;
 	BEGIN        
 	print '1' 
 	INSERT INTO [dbo].[MSH_Data]
-					( MSH_1
+					( 
+					  PatientID
+					 ,MSH_1
 					 ,MSH_2
 					 ,MSH_3_1
 					 ,MSH_3_2
@@ -96,7 +99,8 @@ DECLARE @MSH_Id BIGINT;
 					 ,MSH_18
 					 ,MSH_19)  
 			VALUES  
-				    ( @MSH_1
+				    ( @PatientID
+					 ,@MSH_1
 					 ,@MSH_2
 					 ,@MSH_3_1
 					 ,@MSH_3_2
@@ -138,7 +142,8 @@ DECLARE @MSH_Id BIGINT;
 	 BEGIN
 		UPDATE [dbo].[MSH_Data] 
 		SET
-			 MSH_1		  =	  @MSH_1
+			 PatientID   =   @PatientID	
+			,MSH_1		  =	  @MSH_1
 			,MSH_2		  =	  @MSH_2
 			,MSH_3_1	  =	  @MSH_3_1
 			,MSH_3_2	  =	  @MSH_3_2

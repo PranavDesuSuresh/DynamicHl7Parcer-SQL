@@ -33,7 +33,8 @@ SET NOCOUNT ON;
 	END
 
 	SELECT 
-		 PID_1
+		 PatientID
+		,PID_1
 		,PID_2
 		,PID_3
 		,PID_4

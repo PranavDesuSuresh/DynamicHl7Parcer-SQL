@@ -26,6 +26,7 @@ SET NOCOUNT ON;
   
   CREATE TABLE [dbo].[MSH_Data](
 						[ID]				[BIGINT] IDENTITY(1,1) NOT NULL,
+						[PatientID]			[BIGINT],
 						[MSH_1]				VARCHAR(100),	--fieldSeparator
 						[MSH_2]				VARCHAR(100),	--encodingCharacters
 						[MSH_3_1]			VARCHAR(100),	--sendingApplication.namespaceId

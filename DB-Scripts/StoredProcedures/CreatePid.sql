@@ -26,6 +26,7 @@ SET NOCOUNT ON;
   
   CREATE TABLE [dbo].[PID_Data](
 						[ID]				[BIGINT] IDENTITY(1,1) NOT NULL,
+						[PatientID]			[BIGINT],
 						[PID_1]				VARCHAR(100),	--setId
 						[PID_2]				VARCHAR(100),	--externalId
 						[PID_3]				VARCHAR(100),	--internalId

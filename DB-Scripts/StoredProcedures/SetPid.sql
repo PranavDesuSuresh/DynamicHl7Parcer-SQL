@@ -13,6 +13,7 @@ GO
 ALTER PROCEDURE [dbo].[SetPid] 
 (
 	@ID				INT,
+	@PatientID		BIGINT,
 	@PID_1			VARCHAR(100),	--setId
 	@PID_2			VARCHAR(100),	--externalId
 	@PID_3			VARCHAR(100),	--internalId
@@ -98,7 +99,7 @@ DECLARE @PID_Id BIGINT;
 	IF NOT EXISTS (SELECT 1 FROM [dbo].[PID_Data] WITH(NOLOCK) WHERE ID = @ID)           
 	BEGIN    
 	INSERT INTO [dbo].[PID_Data]
-					(	 ID
+					(	 PatientID
 						,PID_1
 						,PID_2
 						,PID_3
@@ -162,7 +163,8 @@ DECLARE @PID_Id BIGINT;
 						,PID_29
 						,PID_30)
 			VALUES  
-				    (    @PID_1		
+				    (    @PatientID
+						,@PID_1		
 					    ,@PID_2		
 					    ,@PID_3		
 					    ,@PID_4		
@@ -237,7 +239,8 @@ DECLARE @PID_Id BIGINT;
 	 BEGIN
 		UPDATE [dbo].[PID_Data] 
 		SET
-			PID_1			= @PID_1		
+			 PatientID		= @PatientID
+			,PID_1			= @PID_1		
 			,PID_2			= @PID_2		
 			,PID_3			= @PID_3		
 			,PID_4			= @PID_4		

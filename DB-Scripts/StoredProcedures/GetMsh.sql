@@ -32,7 +32,7 @@ SET NOCOUNT ON;
 		EXEC CreateMSH;
 	END
 
-	SELECT 
+	SELECT TOP 1 
 		 PatientID
 		,MSH_1
 		,MSH_2

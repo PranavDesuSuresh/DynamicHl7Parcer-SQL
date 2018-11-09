@@ -32,7 +32,7 @@ SET NOCOUNT ON;
 		EXEC CreatePID;
 	END
 
-	SELECT 
+	SELECT TOP 1
 		 PatientID
 		,PID_1
 		,PID_2
@@ -97,7 +97,8 @@ SET NOCOUNT ON;
 		,PID_29
 		,PID_30
 	FROM PID_Data 
-		WHERE ID=@ID;
+		WHERE PatientID=@ID
+		ORDER BY ID DESC;
  END TRY
  BEGIN CATCH
   SELECT 'SQL Exception: [GetPid]: '+ ' Procedure = ' + ISNULL(ERROR_PROCEDURE(),'')      

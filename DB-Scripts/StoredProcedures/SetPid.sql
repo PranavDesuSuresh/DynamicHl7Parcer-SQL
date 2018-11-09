@@ -96,7 +96,7 @@ DECLARE @PID_Id BIGINT;
 		EXEC CreatePID;
 	END
 
-	IF NOT EXISTS (SELECT 1 FROM [dbo].[PID_Data] WITH(NOLOCK) WHERE ID = @ID)           
+	IF NOT EXISTS (SELECT 1 FROM [dbo].[PID_Data] WITH(NOLOCK) WHERE PatientID = @PatientID)           
 	BEGIN    
 	INSERT INTO [dbo].[PID_Data]
 					(	 PatientID
@@ -235,12 +235,11 @@ DECLARE @PID_Id BIGINT;
 			--WHERE SessionID=@SessionID 
 			-- AND TransactionId <> @TrasactionID      
 	 END 
-	 ELSE IF @ID>0 
+	 ELSE IF @PatientID>0 
 	 BEGIN
 		UPDATE [dbo].[PID_Data] 
 		SET
-			 PatientID		= @PatientID
-			,PID_1			= @PID_1		
+			 PID_1			= @PID_1		
 			,PID_2			= @PID_2		
 			,PID_3			= @PID_3		
 			,PID_4			= @PID_4		
@@ -302,7 +301,7 @@ DECLARE @PID_Id BIGINT;
 			,PID_28			= @PID_28	
 			,PID_29			= @PID_29	
 			,PID_30			= @PID_30
-		WHERE @ID=ID;
+		WHERE PatientID=@PatientID;
 	 END
 
  END TRY
